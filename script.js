@@ -1,13 +1,13 @@
 // EmailJS init e enviarFormulario já aqui, igual antes
 (function () {
-  emailjs.init('dcnOEbAIJbNaJ4shT');
+  emailjs.init('PUBLIC KEY');
 })();
 
 function enviarFormulario(event) {
   event.preventDefault();
   const form = event.target;
 
-  emailjs.sendForm('service_6whbgpk', 'template_c0u69b7', form)
+  emailjs.sendForm('SERVICE KEY', 'TEMPLATE KEY', form)
     .then(() => {
       alert('Mensagem enviada com sucesso! Obrigado pelo contato.');
       form.reset();

@@ -1,12 +1,12 @@
 window.onload = function () {
-    emailjs.init('dcnOEbAIJbNaJ4shT'); // Public key
+    emailjs.init('PUBLIC KEY'); // Public key
 
     const form = document.getElementById('formularioContato');
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
 
-      emailjs.sendForm('service_6whbgpk', 'template_zchs3rt', form)
+      emailjs.sendForm('SERVICE', 'TEMPLATE', form)
         .then(() => {
           alert('Mensagem enviada com sucesso!');
           form.reset();
