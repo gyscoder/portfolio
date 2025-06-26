@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Curso Lei da Atração - Poder da Mente</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Cabeçalho -->
+  <header class="flex items-center justify-between p-4 sm:p-6 shadow-md">
+    <h1 class="text-xl sm:text-2xl font-bold text-purple-700">Poder da Mente</h1>
+    <a href="#formulario" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-800 transition">
+      Quero me inscrever
+    </a>
+  </header>
+
+  <!-- Hero -->
+  <section class="text-center py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-purple-100 to-white">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-purple-800">
+      Transforme sua Vida com a Lei da Atração
+    </h2>
+    <p class="text-base sm:text-lg mb-6 max-w-xl mx-auto text-gray-700">
+      Aprenda técnicas práticas para manifestar sonhos, atrair prosperidade e viver com mais propósito.
+    </p>
+    <img
+      src="https://source.unsplash.com/600x300/?meditation,universe"
+      alt="Banner Lei da Atração"
+      class="mx-auto rounded shadow-lg max-w-full h-auto"
+    />
+  </section>
+
+  <!-- Botão -->
+  <div class="text-center my-8 sm:my-12 px-4">
+    <a href="#formulario" class="inline-block bg-purple-700 text-white px-8 py-4 rounded-lg text-lg sm:text-xl font-semibold hover:bg-purple-800 transition">
+      Quero manifestar agora
+    </a>
+  </div>
+
+  <!-- O que é a Lei da Atração -->
+  <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 bg-white rounded shadow max-w-4xl">
+    <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-purple-800 text-center">
+      O que é a Lei da Atração?
+    </h3>
+    <p class="text-gray-700 text-center text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
+      A Lei da Atração é um princípio que diz que pensamentos positivos atraem experiências positivas para sua vida.
+      Ao focar naquilo que você deseja manifestar, você cria energia e oportunidades para alcançar seus objetivos e sonhos.
+    </p>
+  </section>
+
+  <!-- Vídeo -->
+  <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 bg-purple-50 rounded shadow max-w-4xl text-center">
+    <h3 class="text-2xl sm:text-3xl font-bold mb-6 text-purple-800">
+      Assista ao vídeo de apresentação
+    </h3>
+    <div class="relative" style="padding-top: 56.25%;">
+      <iframe
+        src="https://www.youtube.com/embed/0Vd8Lr-s-_E"
+        title="Vídeo de apresentação sobre Lei da Atração"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        class="absolute top-0 left-0 w-full h-full rounded shadow-lg"
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- Formulário -->
+  <section id="formulario" class="container mx-auto px-4 sm:px-6 lg:px-8 py-10 max-w-xl">
+    <h3 class="text-2xl font-semibold mb-6 text-purple-700 text-center">
+      Inscreva-se gratuitamente
+    </h3>
+    <form id="formularioContato" class="space-y-5">
+      <input type="text" name="nome" id="nome" placeholder="Seu nome" required class="w-full p-3 border rounded" />
+      <input type="email" name="email" id="email" placeholder="Seu e-mail" required class="w-full p-3 border rounded" />
+      <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem" required class="w-full p-3 border rounded"></textarea>
+      <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded hover:bg-purple-700">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Depoimentos -->
+  <section class="bg-purple-50 py-12 sm:py-16">
+    <h3 class="text-2xl font-bold text-center mb-8 text-purple-800">
+      O que nossos alunos dizem
+    </h3>
+    <div id="carrossel" class="relative max-w-2xl mx-auto px-4 sm:px-0">
+      <div class="depoimento text-center text-lg p-6 bg-white rounded shadow transition-opacity duration-500">
+        “Depois do curso, minha mentalidade mudou completamente. Atraí meu emprego dos sonhos.” – Juliana
+      </div>
+      <div class="depoimento hidden text-center text-lg p-6 bg-white rounded shadow">
+        “A energia do curso é incrível. Manifestei até um relacionamento saudável!” – Thiago
+      </div>
+      <div class="depoimento hidden text-center text-lg p-6 bg-white rounded shadow">
+        “As técnicas realmente funcionam. Minha vida nunca mais foi a mesma.” – Camila
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-purple-600 text-white text-center py-6 mt-12">
+    <p>&copy; 2025 Poder da Mente. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Carrossel -->
+  <script>
+    const depoimentos = document.querySelectorAll('.depoimento');
+    let atual = 0;
+    setInterval(() => {
+      depoimentos[atual].classList.add('hidden');
+      atual = (atual + 1) % depoimentos.length;
+      depoimentos[atual].classList.remove('hidden');
+    }, 4000);
+  </script>
+
+  <!-- Biblioteca do EmailJS -->
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

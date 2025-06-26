@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teste EmailJS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Importa o SDK do EmailJS corretamente -->
+  <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans min-h-screen flex items-center justify-center">
+
+  <form id="formularioContato" class="bg-white p-8 rounded shadow-md w-full max-w-md space-y-4">
+    <h1 class="text-2xl font-bold text-center text-purple-700">Contato</h1>
+    <input type="text" name="nome" placeholder="Seu nome" required class="w-full p-3 border rounded" />
+    <input type="email" name="email" placeholder="Seu e-mail" required class="w-full p-3 border rounded" />
+    <textarea name="mensagem" placeholder="Sua mensagem" required class="w-full p-3 border rounded"></textarea>
+    <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded hover:bg-purple-700">Enviar</button>
+  </form>
+
+  <script>
+    window.addEventListener('load', function () {
+      // Inicializa com sua public key
+      emailjs.init("dcnOEbAIJbNaJ4shT");
+
+      const form = document.getElementById('formularioContato');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        emailjs.sendForm('service_6whbgpk', 'template_c0u69b7', this)
+          .then(function () {
+            alert("Mensagem enviada com sucesso!");
+            form.reset();
+          }, function (error) {
+            console.error("Erro ao enviar:", error);
+            alert("Erro ao enviar mensagem. Verifique o console.");
+          });
+      });
+    });
+  </script>
+
+</body>
+</html>

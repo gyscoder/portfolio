@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App de Finanças Pessoais</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="titulo">App de Finanças Pessoais</h1>
+
+  <div class="resumo">
+    <div>
+      <p>Receitas</p>
+      <p id="totalReceitas" class="valor verde">R$ 0,00</p>
+    </div>
+    <div>
+      <p>Despesas</p>
+      <p id="totalDespesas" class="valor vermelho">R$ 0,00</p>
+    </div>
+    <div>
+      <p>Saldo</p>
+      <p id="saldo" class="valor">R$ 0,00</p>
+    </div>
+  </div>
+
+  <form id="formTransacao" class="formulario">
+    <select name="tipo" required>
+      <option value="">Tipo</option>
+      <option value="Receita">Receita</option>
+      <option value="Despesa">Despesa</option>
+    </select>
+    <input name="categoria" placeholder="Categoria" required />
+    <input name="valor" type="number" step="0.01" placeholder="Valor (R$)" required />
+    <button type="submit">Adicionar</button>
+  </form>
+
+  <div>
+    <h2 class="subtitulo">Histórico</h2>
+    <ul id="listaTransacoes" class="lista"></ul>
+    <div class="mt-6">
+        <button onclick="baixarLog()" class="bg-gray-700 text-white p-2 rounded hover:bg-gray-800">
+          Baixar log de transações
+        </button>
+      </div>
+      
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

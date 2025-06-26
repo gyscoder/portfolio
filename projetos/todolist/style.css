@@ -1,0 +1,302 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.titulo {
+  text-align: center;
+  color: #5a4fcf;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+#contadorGeral {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #4a5568;
+  font-size: 1.1rem;
+}
+
+.formulario {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.formulario input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e0;
+  font-size: 1rem;
+}
+
+.formulario input[type="text"]:focus {
+  outline: none;
+  border-color: #5a4fcf;
+  box-shadow: 0 0 5px #a3bffa;
+}
+
+.formulario button {
+  background-color: #5a4fcf;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.2s;
+}
+
+.formulario button:hover {
+  background-color: #3c2cdb;
+}
+
+.filtros {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filtro {
+  padding: 8px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.filtro:hover,
+.filtro:focus {
+  background-color: #ddd6fe;
+  color: #5b21b6;
+  outline: none;
+}
+
+#listaTarefas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#listaTarefas li {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease;
+}
+
+#listaTarefas li.bg-green-50 {
+  background-color: #daf1dc;
+  color: #4a5568;
+  text-decoration: line-through;
+}
+
+.tarefa-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.tarefa-texto {
+  flex: 1;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #5a4fcf;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.tarefa-texto:hover {
+  color: #3c2cdb;
+}
+
+.botao {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.text-blue-600:hover {
+  background-color: #c7d2fe;
+  color: #312e81;
+}
+
+.text-red-600:hover {
+  background-color: #fed7d7;
+  color: #9b2c2c;
+}
+
+/* Submenu (subtarefas) */
+.submenu {
+  margin-top: 15px;
+  background-color: #f7fafc;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: inset 0 0 6px #cbd5e0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Barra de progresso */
+.barra-progresso-container {
+  width: 100%;
+  height: 14px;
+  background-color: #e2e8f0; /* cinza claro */
+  border-radius: 9999px; /* arredondado */
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.barra-progresso {
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease-in-out;
+  border-radius: 9999px 0 0 9999px; /* arredondado só à esquerda */
+}
+
+/* Quando a barra estiver completa (100%), arredonda os dois lados */
+.barra-progresso.completa {
+  border-radius: 9999px;
+}
+
+
+/* Lista subtarefas */
+.subtarefas-lista {
+  padding-left: 20px;
+  max-height: 140px;
+  overflow-y: auto;
+  margin-bottom: 8px;
+}
+
+.subtarefas-lista li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: #2d3748;
+  padding: 4px 0;
+}
+
+.subtarefas-lista li span {
+  flex-grow: 1;
+}
+
+.subtarefas-lista li span.line-through {
+  color: #718096;
+  text-decoration: line-through;
+}
+
+.subtarefas-lista li input[type="checkbox"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+/* Form subtarefa */
+.submenu form {
+  display: flex;
+  gap: 8px;
+}
+
+.submenu form input[type="text"] {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e0;
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.submenu form input[type="text"]:focus {
+  outline: none;
+  border-color: #5a4fcf;
+  box-shadow: 0 0 6px #a3bffa;
+}
+
+.submenu form button {
+  background-color: #5a4fcf;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submenu form button:hover {
+  background-color: #3c2cdb;
+}
+
+/* Botão baixar log */
+.btn-log {
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: #4a5568;
+  color: #edf2f7;
+  transition: background-color 0.2s;
+  display: block;
+  margin: 20px auto 0 auto;
+}
+
+.btn-log:hover {
+  background-color: #2d3748;
+}
+
+/* Scrollbar subtarefas */
+.subtarefas-lista::-webkit-scrollbar {
+  width: 6px;
+}
+
+.subtarefas-lista::-webkit-scrollbar-thumb {
+  background-color: #a3bffa;
+  border-radius: 3px;
+}
+
+.subtarefas-lista::-webkit-scrollbar-track {
+  background-color: #edf2f7;
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .tarefa-texto {
+    font-size: 1rem;
+  }
+
+  .formulario button,
+  .btn-log {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+}
+
+.hidden {
+  display: none !important;
+}

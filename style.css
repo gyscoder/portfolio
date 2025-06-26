@@ -1,0 +1,320 @@
+:root {
+    --cor-principal: #282a36;
+    --cor-secundaria: #1e1f29;
+    --cor-accento: #6272a4;
+    --cor-texto: #f8f8f2;
+    --cor-texto-secundario: #bd93f9;
+    --cor-foco: #50fa7b;
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --transicao-suave: 0.3s ease;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    line-height: 1.5;
+    margin: 0;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  header {
+    background-color: var(--cor-principal);
+    color: var(--cor-texto);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  }
+  
+  header h1 {
+    font-weight: 700;
+    font-size: 1.6rem;
+    user-select: none;
+  }
+  
+  nav a {
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    transition: color var(--transicao-suave);
+  }
+  
+  nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: var(--cor-foco);
+    transition: width var(--transicao-suave);
+  }
+  
+  nav a:hover,
+  nav a:focus-visible {
+    color: var(--cor-foco);
+    outline: none;
+  }
+  
+  nav a:hover::after,
+  nav a:focus-visible::after {
+    width: 100%;
+  }
+  
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  section {
+    margin-bottom: 4rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: var(--cor-foco);
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--cor-foco);
+    display: inline-block;
+    padding-bottom: 0.3rem;
+    user-select: none;
+  }
+  
+  #home p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-top: 1rem;
+    color: var(--cor-texto);
+  }
+  
+  #home .cta-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background-color: var(--cor-foco);
+    color: var(--cor-principal);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color var(--transicao-suave), color var(--transicao-suave);
+    user-select: none;
+    box-shadow: 0 4px 8px rgba(80, 250, 123, 0.25);
+  }
+  
+  #home .cta-button:hover,
+  #home .cta-button:focus-visible {
+    background-color: var(--cor-texto);
+    color: var(--cor-foco);
+    outline: none;
+    box-shadow: 0 6px 12px rgba(80, 250, 123, 0.5);
+  }
+  
+  /* Projetos */
+  .projeto {
+    background-color: var(--cor-principal);
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    margin-bottom: 1.5rem;
+    transition: box-shadow var(--transicao-suave), transform var(--transicao-suave);
+    user-select: none;
+  }
+  
+  .projeto:hover,
+  .projeto:focus-within {
+    box-shadow: 0 6px 20px rgba(80, 250, 123, 0.8);
+    transform: translateY(-5px);
+  }
+  
+  .projeto h3 {
+    color: var(--cor-foco);
+    margin-bottom: 0.75rem;
+  }
+  
+  .projeto p {
+    margin-bottom: 0.5rem;
+    color: var(--cor-texto);
+  }
+  
+  .tags {
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+    font-style: italic;
+    user-select: text;
+  }
+  
+  /* Sobre */
+  #sobre p {
+    max-width: 650px;
+    margin-bottom: 1rem;
+    color: var(--cor-texto);
+  }
+  
+  /* Contato */
+  form {
+    max-width: 450px;
+    background-color: var(--cor-principal);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+    color: var(--cor-texto);
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    color: var(--cor-texto-secundario);
+    user-select: none;
+  }
+  
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #44475a;
+    border-radius: 4px;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color var(--transicao-suave), box-shadow var(--transicao-suave);
+  }
+  
+  form input:focus,
+  form textarea:focus {
+    outline: none;
+    border-color: var(--cor-foco);
+    box-shadow: 0 0 8px var(--cor-foco);
+  }
+  
+  form button {
+    background-color: var(--cor-foco);
+    color: var(--cor-principal);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color var(--transicao-suave), box-shadow var(--transicao-suave);
+    user-select: none;
+    box-shadow: 0 4px 8px rgba(80, 250, 123, 0.5);
+  }
+  
+  form button:hover,
+  form button:focus-visible {
+    background-color: var(--cor-texto);
+    color: var(--cor-foco);
+    outline: none;
+    box-shadow: 0 6px 16px rgba(80, 250, 123, 0.8);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem 2rem;
+    background-color: var(--cor-principal);
+    color: var(--cor-texto);
+    font-size: 0.9rem;
+    margin-top: 4rem;
+    user-select: none;
+    box-shadow: inset 0 1px 3px rgba(80, 250, 123, 0.2);
+  }
+  
+  /* Responsividade */
+  @media (max-width: 900px) {
+    main {
+      margin: 1.5rem 1rem;
+      padding: 0 0.75rem;
+    }
+  
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  
+    nav a {
+      margin-left: 0;
+      margin-right: 1rem;
+      font-size: 0.95rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    nav {
+      width: 100%;
+    }
+  
+    nav a {
+      display: inline-block;
+      margin: 0 0.75rem 0.5rem 0;
+    }
+  
+    .projeto {
+      padding: 1rem;
+    }
+  
+    h2 {
+      font-size: 1.6rem;
+    }
+  }
+  
+  /* Animações */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Foco acessível para toda a página */
+  :focus-visible {
+    outline: 2px solid var(--cor-foco);
+    outline-offset: 2px;
+    transition: outline-color 0.3s ease;
+  }
+  
+  /* Removendo o foco padrão nos links para customizar */
+a.scroll-link:focus {
+    outline: none;
+  }
+  
+  /* Classe para destacar a seção após o scroll */
+  .secao-destacada {
+    position: relative;
+    animation: destaqueFade 2.5s ease forwards;
+    border-radius: 8px;
+    background-color: rgba(90, 79, 207, 0.02); /* ainda mais suave */
+    box-shadow: 0 0 25px 1.5px rgba(90, 79, 207, 0.3); /* menos intenso, mais espalhado */
+  }
+  
+  @keyframes destaqueFade {
+    0% {
+      box-shadow: 0 0 45px 3px rgba(90, 79, 207, 0.5);
+      background-color: rgba(90, 79, 207, 0.05);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(90, 79, 207, 0);
+      background-color: rgba(90, 79, 207, 0);
+    }
+  }
+  
+  

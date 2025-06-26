@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfólio de Geysom S. S. Souza</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Geysom Soares da Silva Souza</h1>
+        <nav>
+            <a href="#home" class="scroll-link">Home</a>
+            <a href="#projetos" class="scroll-link">Projetos</a>
+            <a href="#sobre" class="scroll-link">Sobre</a>
+            <a href="#contato" class="scroll-link">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" >
+            <h2>Olá, eu sou Geysom</h2>
+            <p>Designer gráfico e desenvolvedor full stack em desenvolvimento, apaixonado por criar sites bonitos e
+                funcionais que ajudam empresas a crescer.</p>
+            <a href="#contato" class="cta-button">Vamos conversar!</a>
+        </section>
+
+        <section id="projetos" class="secao-destacada">
+            <h2>Projetos</h2>
+            <a href="/projetos/landing-page/index.html" id="landing-page" class="scroll-link">
+                <article class="projeto">
+                    <h3>Landing Page Lei da Atração</h3>
+                    <p>Landing para curso fictício sobre a Lei da Atração, com design inspirador, formulário de
+                        inscrição, vídeo de apresentação e carrossel de depoimentos.
+                        Projetada para conversão, com identidade visual suave e foco em despertar o interesse do usuário
+                        desde o primeiro contato.</p>
+                    <p class="tags">HTML, TailwindCSS, JavaScript / React</p>
+                </article>
+            </a>
+            <a href="/projetos/financas-pessoais/index.html" id="financas-pessoais" class="scroll-link">
+                <article class="projeto">
+                    <h3>App de Finanças Pessoais</h3>
+                    <p>App simples para controle financeiro pessoal, com cadastro de receitas e despesas, cálculo
+                        automático
+                        do saldo, histórico de transações e remoção de entradas. Além disso, mantém persistência dos
+                        dados
+                        no navegador via localStorage e gera um log das ações para download.</p>
+                    <p class="tags">HTML, CSS (TailwindCSS + arquivo externo), JavaScript (DOM, localStorage,
+                        manipulação dinâmica)</p>
+                </article>
+            </a>
+            <a href="/projetos/todolist/index.html" id="to-doapp" class="scroll-link">
+                <article class="projeto"><!--falta esses pra baixo ainda-->
+                    <h3>To-Do List App</h3>
+                    <p>Aplicativo simples para organização de tarefas diárias com suporte a filtros, marcação de tarefas
+                        concluídas, remoção e persistência local. Permite também gerar e baixar um log completo das
+                        ações realizadas.</p>
+                    <p class="tags">HTML, TailwindCSS, JavaScript (DOM, localStorage)</p>
+                </article>
+            </a>
+            <article class="projeto">
+                <h3>Mini E-commerce de Produtos Criativos</h3>
+                <p>Loja fictícia "Artsy" com galeria filtrável, carrinho funcional e checkout visual.</p>
+                <p class="tags">Vue, React, Shopify</p>
+            </article>
+
+            <article class="projeto">
+                <h3>Dashboard de Finanças Pessoais</h3>
+                <p>Web app para controle financeiro pessoal, com gráficos dinâmicos, cadastro de transações e modo
+                    escuro.</p>
+                <p class="tags">React, Zustand, Chart.js</p>
+            </article>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre mim</h2>
+            <p>Sou formado em design gráfico e tenho bastante experiência em front-end. Atualmente estou aprofundando
+                minhas habilidades em back-end para atuar como full stack developer.</p>
+            <p>Tenho paixão por criar soluções digitais que unem estética, usabilidade e funcionalidade.</p>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <form id="formContato" onsubmit="enviarFormulario(event)">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" required />
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Geysom Soares da Silva Souza. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
