@@ -1,26 +1,26 @@
 [
-    {
-      "nome": "Camiseta Astronauta",
-      "descricao": "Camiseta 100% algodão com estampa espacial.",
-      "preco": "59,90",
-      "imagem": "",
-      "whatsapp": "5519999887744",
-      "mensagem": "Olá! Tenho interesse na camiseta Astronauta."
-    },
-    {
-      "nome": "Caneca Geek",
-      "descricao": "Caneca temática para amantes de tecnologia.",
-      "preco": "34,90",
-      "imagem": "",
-      "whatsapp": "5519999887744",
-      "mensagem": "Olá! Gostaria de saber mais sobre a Caneca Geek."
-    },
-    {
-      "nome": "produto novo",
-      "descricao": "produto novo",
-      "preco": "399,99",
-      "imagem": "",
-      "whatsapp": "5519999887744",
-      "mensagem": "Olá gostaria de ver o produto novo"
-    }
-  ]
+  {
+    "nome": "Produto novo 1",
+    "descricao": "Produto novo 1",
+    "preco": "5466,99",
+    "imagem": "https://images.tcdn.com.br/img/img_prod/1098943/caixa_de_papelao_mudanca_c2_40x40x40cm_1und_35911_2_bb6ba439d9e0a35bdc110f845067e0c2.jpg",
+    "whatsapp": "5519989057540",
+    "mensagem": "Olá, quero mais informações sobre o Produto novo 1"
+  },
+  {
+    "nome": "Produto novo 2",
+    "descricao": "Produto novo 2",
+    "preco": "44,50",
+    "imagem": "imagens/default.png",
+    "whatsapp": "5519989057540",
+    "mensagem": "Olá, quero mais informações sobre o Produto novo 2"
+  },
+  {
+    "nome": "Produto novo 3",
+    "descricao": "Produto novo 3",
+    "preco": "45,50",
+    "imagem": "",
+    "whatsapp": "5519989057540",
+    "mensagem": "Olá, quero mais informações sobre o Produto novo 3"
+  }
+]

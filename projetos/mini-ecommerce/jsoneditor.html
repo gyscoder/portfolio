@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <title>Gerenciador de Produtos</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
         @keyframes fade-in {
             from {
@@ -21,65 +22,120 @@
         .animate-fade-in {
             animation: fade-in 0.3s ease-out;
         }
+
+        @keyframes toast-fade-in {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes toast-fade-out {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+        }
+
+        .toast-show {
+            animation: toast-fade-in 0.3s forwards;
+        }
+
+        .toast-hide {
+            animation: toast-fade-out 0.3s forwards;
+        }
     </style>
 </head>
 
-<body class="bg-gray-100 p-6">
-    <div class="max-w-3xl mx-auto bg-white p-6 rounded shadow">
-        <section class="mt-8 bg-gray-100 p-6 rounded shadow max-w-2xl mx-auto">
-            <h2 class="text-xl font-semibold text-gray-800 mb-4">Como atualizar os produtos no site</h2>
-            <ol class="list-decimal list-inside text-gray-700 space-y-2 text-sm">
+<body class="bg-slate-900 text-slate-100 p-4 sm:p-6">
+    <div class="max-w-4xl mx-auto bg-slate-800 p-6 sm:p-8 rounded shadow-md">
+
+        <section class="mb-8 bg-slate-700 p-4 sm:p-6 rounded shadow">
+            <h2 class="text-lg sm:text-xl font-semibold text-slate-100 mb-4">Como atualizar os produtos no site</h2>
+            <ol class="list-decimal list-inside text-slate-300 space-y-2 text-sm">
                 <li>Preencha o formulário abaixo com os dados do novo produto.</li>
                 <li>Clique em <strong>"Baixar produtos.json"</strong> para salvar o arquivo atualizado.</li>
-                <li>Acesse o repositório aonde está localizado o <code>produtos.json</code></li>
+                <li>Acesse o repositório onde está localizado o <code>produtos.json</code>.</li>
                 <li>Substitua o arquivo <code>produtos.json</code> pelo novo arquivo baixado.</li>
             </ol>
-            <p class="mt-4 text-gray-600 text-sm">
-                <strong>Dica:</strong> você pode editar, remover ou adicionar quantos produtos quiser antes de baixar o
+            <p class="mt-4 text-slate-400 text-sm">
+                <strong>Dica:</strong> Você pode editar, remover ou adicionar quantos produtos quiser antes de baixar o
                 arquivo.
             </p>
-            <p class="mt-4 text-gray-600 text-sm">
-                <strong>Dica:</strong> Adicione um espaço em branco na URL da imagem caso não tenha enviado a imagem do
-                produto ou não tenha a URL.
+            <p class="mt-2 text-slate-400 text-sm">
+                <strong>Dica:</strong> Deixe a URL da imagem em branco se ainda não tiver imagem do produto.
             </p>
-
         </section>
 
-        <h1 class="text-2xl font-bold mb-4">Gerenciador de Produtos</h1>
-
+        <h1 class="text-2xl font-bold mb-4 text-slate-100">Gerenciador de Produtos</h1>
+        <div id="toast-container" class="fixed top-4 right-4 flex flex-col space-y-2 z-50"></div>
         <label class="block font-semibold mb-1">Cole o JSON atual de produtos aqui:</label>
-        <textarea id="jsonInput" class="w-full p-2 border rounded mb-2 h-32 font-mono text-sm"
+        <textarea id="jsonInput"
+            class="w-full p-2 border border-slate-600 bg-slate-700 text-slate-100 rounded mb-2 h-32 font-mono text-sm resize-y"
             placeholder='Cole aqui o conteúdo do "produtos.json"'></textarea>
-        <button id="btnCarregar" class="mb-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Carregar
-            JSON</button>
+
+        <button id="btnCarregar"
+            class="w-full sm:w-auto mb-6 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+            Carregar JSON
+        </button>
 
         <form id="formProduto" class="space-y-4 mb-6">
-            <input class="w-full p-2 border rounded" placeholder="Nome do Produto" id="nome" required />
-            <textarea class="w-full p-2 border rounded" placeholder="Descrição" id="descricao" required></textarea>
-            <input class="w-full p-2 border rounded" placeholder="Preço (ex: 49.90)" id="preco" required />
-            <input class="w-full p-2 border rounded" placeholder="URL da Imagem" id="imagem" required />
-            <input class="w-full p-2 border rounded" placeholder="Número do WhatsApp (somente números)" id="whatsapp"
-                required />
-            <input class="w-full p-2 border rounded" placeholder="Mensagem para o Whatsapp" id="mensagem" required />
-            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" type="submit">Adicionar
-                Produto</button>
+            <input class="w-full p-2 border border-slate-600 bg-slate-700 rounded text-slate-100"
+                placeholder="Nome do Produto" id="nome" required />
+            <textarea class="w-full p-2 border border-slate-600 bg-slate-700 rounded text-slate-100"
+                placeholder="Descrição" id="descricao" required></textarea>
+            <input class="w-full p-2 border border-slate-600 bg-slate-700 rounded text-slate-100"
+                placeholder="Preço (ex: 49.90)" id="preco" required />
+            <input class="w-full p-2 border border-slate-600 bg-slate-700 rounded text-slate-100"
+                placeholder="URL da Imagem" id="imagem" required />
+            <div id="preview"
+                class="h-40 w-full object-contain rounded bg-slate-600 flex items-center justify-center text-sm text-slate-300">
+                Pré-visualização da imagem
+            </div>
+            <input class="w-full p-2 border border-slate-600 bg-slate-700 rounded text-slate-100"
+                placeholder="Número do WhatsApp (somente números)" id="whatsapp" required />
+            <input class="w-full p-2 border border-slate-600 bg-slate-700 rounded text-slate-100"
+                placeholder="Mensagem para o Whatsapp" id="mensagem" required />
+            <button class="w-full sm:w-auto bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
+                type="submit">
+                Adicionar Produto
+            </button>
         </form>
 
-        <h2 class="text-xl font-semibold mb-2">Produtos Cadastrados</h2>
+        <h2 class="text-xl font-semibold mb-2 text-slate-100">Produtos Cadastrados</h2>
         <ul id="listaProdutos" class="mb-6 space-y-2"></ul>
 
-        <h2 class="text-xl font-semibold mb-2">JSON Atualizado</h2>
-        <pre id="jsonSaida" class="bg-gray-200 p-4 rounded text-sm overflow-x-auto h-48"></pre>
-        <button onclick="baixarJSON()"
-            class="bg-blue-600 text-white font-medium px-4 py-2 rounded hover:bg-blue-700 transition">
-            Baixar produtos.json
-        </button>
-        <a href="index.html">
-        <button 
-            class="bg-blue-600 text-white font-medium px-4 py-2 rounded hover:bg-blue-700 transition"> 
-            Voltar para loja
-        </button>
-    </a>
+        <h2 class="text-xl font-semibold mb-2 text-slate-100">JSON Atualizado</h2>
+        <pre id="jsonSaida" class="bg-slate-700 p-4 rounded text-sm text-slate-100 overflow-x-auto h-48"></pre>
+
+        <!-- ... (restante do código acima permanece igual) -->
+
+        <div class="flex flex-col sm:flex-row gap-3 mt-4">
+            <button onclick="baixarJSON()"
+                class="bg-indigo-600 text-white font-medium px-4 py-2 rounded hover:bg-indigo-700 transition">
+                Baixar produtos.json
+            </button>
+            <button onclick="copiarJSON()"
+                class="bg-teal-600 text-white font-medium px-4 py-2 rounded hover:bg-teal-700 transition">
+                Copiar JSON
+            </button>
+            <a href="index.html">
+                <button class="bg-purple-600 text-white font-medium px-4 py-2 rounded hover:bg-purple-700 transition">
+                    Voltar para loja
+                </button>
+            </a>
+        </div>
+
     </div>
 
     <script src="jsoneditor.js"></script>
