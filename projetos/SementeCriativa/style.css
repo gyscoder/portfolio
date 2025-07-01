@@ -13,7 +13,6 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, #88cc88 0%, #b6e4b6 40%, #d4f1f4 100%);
     overflow: hidden;
 }
 
@@ -92,8 +91,6 @@ html {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    border-top: 2px solid #4caf50;
     padding: 10px;
     display: flex;
     flex-wrap: wrap;

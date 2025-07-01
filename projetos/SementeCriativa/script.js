@@ -21,7 +21,7 @@ function atualizarJardim() {
     ideiasColhidas.forEach(txt => {
         const pote = document.createElement('div');
         pote.className = "vaso";
-        pote.innerHTML = `🪴<br>${txt}`;
+        pote.innerHTML = `🌱<br>${txt}`;
         pote.addEventListener('click', () => {
             if (!ideias.find(i => i.texto === txt)) {
                 ideias.push({ texto: txt });
