@@ -1,82 +1,91 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    font-family: 'Inter', sans-serif;
-    background: url('sprites/background/back.png') no-repeat center center;
-    background-size: cover;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: url('sprites/background/back.png') no-repeat center center;
+  background-size: cover;
+}
+
+
+#campo-ideias {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#painel {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  z-index: 10;
+  max-width: 500px;
+  width: 90%;
+}
+
+#jardim {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+}
+
+.fala {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  animation: subirDesaparecer 2s forwards;
+}
+
+@keyframes subirDesaparecer {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
-  #campo-ideias {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-40px);
   }
+}
 
-  #painel {
-    position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 12px;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    z-index: 10;
-    max-width: 500px;
-    width: 90%;
-  }
+.sprite {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
 
-  #jardim {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 200px;
-    height: 100%;
-    overflow-y: auto;
-    background: rgba(0,0,0,0.5);
-    color: white;
-    padding: 10px;
-  }
+.vaso {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 5px 0;
+  padding: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-  .fala {
-    position: absolute;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    padding: 4px 8px;
-    border-radius: 8px;
-    animation: subirDesaparecer 2s forwards;
-  }
-
-  @keyframes subirDesaparecer {
-    0% { opacity: 1; transform: translateX(-50%) translateY(0); }
-    100% { opacity: 0; transform: translateX(-50%) translateY(-40px); }
-  }
-
-  .sprite {
-    position: absolute;
-    width: 64px;
-    height: 64px;
-    background-repeat: no-repeat;
-    image-rendering: pixelated;
-  }
-
-  .vaso {
-    background: rgba(255,255,255,0.1);
-    margin: 5px 0;
-    padding: 4px;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-
-  .vaso:hover {
-    background: rgba(255,255,255,0.3);
-  }
+.vaso:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
