@@ -1,0 +1,77 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #000;
+  color: #00ff66;
+  font-family: monospace;
+  overflow: hidden;
+}
+
+/* Fundo de partículas */
+#particles-js {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ASCII art */
+.ascii-container {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.ascii-art {
+  color: #00ff66;
+  font-size: 8px;
+  line-height: 0.7;
+  white-space: pre;
+  text-shadow: 0 0 10px #00ff66, 0 0 30px #00ffaa, 0 0 60px #00ffcc;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Terminal */
+.terminal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-top: 1px solid #00ff66;
+  padding: 10px;
+  z-index: 2;
+}
+
+#terminal-output {
+  height: 150px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  margin-bottom: 5px;
+}
+
+.terminal-input {
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  color: #00ffaa;
+  margin-right: 5px;
+}
+
+#command-input {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: #00ff66;
+  font-family: monospace;
+  font-size: 14px;
+}
